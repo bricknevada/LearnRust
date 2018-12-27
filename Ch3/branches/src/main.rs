@@ -1,7 +1,6 @@
-use std::env;
 
 fn main() {
-    for x in env::args(){
-        println!("{:?}", x );
-    }
+    let mut s = String::from("Hello");
+    s.push_str(", world!");
+    println!("{}", s);
 }
