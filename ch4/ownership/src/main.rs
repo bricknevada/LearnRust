@@ -1,18 +1,18 @@
 fn main() {
-    let s = String::from("Hey y'all");
-    let x = first_word(&s);
-    println!("{}",s);
-    println!("First word ends at position {}", x);
+    let my_string = String::from("Hello World");
+
+    let word = first_word(&my_string[..]);
+    let my_string_literal = "Hey y'all";
+    let word = first_word(&my_string_literal[..]);
+    let word = first_word(my_string_literal);
 }
 
-fn first_word(s: &String) -> usize {
+fn first_word(s: &str) -> &str {
     let bytes = s.as_bytes();
-
-    for(i, &item) in bytes.iter().enumerate(){
+    for (i, &item) in bytes.iter().enumerate() {
         if item == b' ' {
-            println!("Working on {} at '{}'", i, item as char);
-            return i;
+            return &s[0..i];
         }
     }
-    s.len()
+    &s[..]
 }
